@@ -3,7 +3,7 @@ Modular NLP pipeline for detecting rhetorical bias in news headlines. Combines e
 
 ## Project Structure
 
-- `data/` – MBIC dataset and feature-engineered version
+- `data/` – MBIC dataset 
 - `notebook/` – main analysis notebook with pipeline steps (Note: Due to widget metadata, GitHub may not render the notebook preview correctly. Please open it locally for full functionality.)
 - `results/`: csv-files of all preditions and all fold metrics from both models 
 
