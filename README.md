@@ -1,40 +1,29 @@
 # InfoLing2_project
-Modular NLP pipeline for detecting rhetorical bias in news headlines. Combines emotion detection, political leaning classification, correlation analysis, and a fine-tuned DeBERTa-v3 model. Feature engineering and oversampling support performance, transparency, and reproducibility.
-
-## Bias Detection in Political News Headlines
-
-This repository contains a modular NLP pipeline for detecting rhetorical bias in political news headlines. It combines emotion detection, political leaning classification, correlation analysis, and a fine-tuned DeBERTa-v3 model to classify headlines as biased or unbiased.
+Modular NLP pipeline for detecting rhetorical bias in news headlines. Combines emotion and ideology features with a fine-tuned DeBERTa-v3 model. Stratified K-Fold validation and oversampling ensure robust, reproducible performance across text-only and feature-enhanced setups.
 
 ## Project Structure
 
-- `data/` – cleaned MBIC dataset and feature-engineered versions  
-- `notebooks/` – main analysis notebook with pipeline steps  
-- `models/` – saved DeBERTa model and tokenizer  
-- `outputs/` – visualizations, coefficient analysis, and results  
+- `data/` – MBIC dataset and feature-engineered version
+- `notebook/` – main analysis notebook with pipeline steps 
+- `results/`: csv-files of all preditions and all fold metrics from both models 
 
 ## Pipeline Overview
 
-1. **Emotion Detection** – using `j-hartmann/emotion-english-distilroberta-base`  
-2. **Political Leaning Classification** – using `matous-volf/political-leaning-politics`  
-3. **Correlation Analysis** – Pearson & Chi-Square  
+1. **Baseline text-only classifier** with a DeBERTa-v3 model 
+2. **Emotion Detection** using `j-hartmann/emotion-english-distilroberta-base`  
+3. **Political Leaning Classification** using `matous-volf/political-leaning-politics`
 4. **Politicization Analysis** – word-level and document-level  
-5. **Feature Engineering** – emotion + POS features  
-6. **Bias Classification** – fine-tuned DeBERTa-v3 model 
+5. **Correlation Analysis** – Pearson & Chi-Square  
+7. **Feature Engineering** – emotion + POS features  
+8. **Feature-enhanced classifer** with a DeBERTa-v3 model 
 
 ## Model Details
 
 - Architecture: `microsoft/deberta-v3-base`  
-- Task: Binary classification (`biased` vs. `unbiased`)  
-- Input: Engineered emotion & POS features  
+- Task: label classification (`left`, `right`, `center` vs. `unbiased`)  
+- Input: Text-only (headlines) and additional features (dominant emotion, political leaning prediction & politicization score)  
 - Training: Random oversampling for class balance  
 - Evaluation: Cross-validation with best fold selection
-
-## Interpretability
-
-Due to SHAP runtime constraints, interpretability is provided via:
-
-- Logistic Regression Coefficient Analysis  
-- Feature Importance via Random Forest (optional)
 
 ## Installation
 
