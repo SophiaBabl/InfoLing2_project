@@ -1,11 +1,11 @@
 # InfoLing2_project
-Modular NLP pipeline for detecting rhetorical bias in news headlines. Combines emotion and ideology features with a fine-tuned DeBERTa-v3 model. Stratified K-Fold validation and oversampling ensure robust, reproducible performance across text-only and feature-enhanced setups.
+Modular NLP pipeline for detecting rhetorical bias in news headlines. Combines emotion and ideology features with a fine-tuned DeBERTa-v3 model. Stratified K-Fold validation ensures robust, reproducible performance across text-only and feature-enhanced setups.
 
 ## Project Structure
 
-- `data/` – MBIC dataset 
+- `data/` – combined dataset of MBIC and BEADs with additional features "emotion scores", "dominant emotion", " 
 - `notebook/` – main analysis notebook with pipeline steps (Note: Due to widget metadata, GitHub may not render the notebook preview correctly. Please open it locally for full functionality.)
-- `results/`: csv-files of all preditions and all fold metrics from both models 
+- `results/`: csv-files of all preditions and all fold metrics from both model trainings 
 
 ## Pipeline Overview
 
