@@ -3,7 +3,7 @@ Modular NLP pipeline for detecting rhetorical bias in news headlines. Combines e
 
 ## Project Structure
 
-- `data/` – combined dataset of MBIC and BEADs with additional features "emotion scores", "dominant emotion", " 
+- `data/` – combined dataset of MBIC and BEADs with additional features "emotion scores", "dominant emotion", "leaning scores" and "political leaning"
 - `notebook/` – main analysis notebook with pipeline steps (Note: Due to widget metadata, GitHub may not render the notebook preview correctly. Please open it locally for full functionality.)
 - `results/`: csv-files of all preditions and all fold metrics from both model trainings 
 
@@ -15,7 +15,7 @@ Modular NLP pipeline for detecting rhetorical bias in news headlines. Combines e
 4. **Politicization Analysis** – word-level and document-level  
 5. **Correlation Analysis** – Pearson & Chi-Square  
 7. **Feature Engineering** – emotion + POS features  
-8. **Feature-enhanced classifer** with a DeBERTa-v3 model 
+8. **Feature-enhanced classifer** with a DeBERTa-v3 model and fushion architecture
 
 ## Model Details
 
