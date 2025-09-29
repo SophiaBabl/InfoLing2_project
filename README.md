@@ -24,17 +24,17 @@ Modular NLP pipeline for detecting rhetorical bias in news headlines. Combines e
 ## Model Details
 
 - Architecture: `microsoft/deberta-v3-base`
-- Task: label classification (`left`, `right`, `center` vs. `unbiased`)  
+- Task: label classification (text-only: `biased` vs. `unbiased`; with features: `left`, `right`, `center` vs. `unbiased`)  
 - Input: Text-only (headlines) and additional features (dominant emotion, political leaning prediction & politicization score)  
-- Training: Random oversampling for class balance  
-- Evaluation: Cross-validation with best fold selection
+- Training: Stratefied K-Fold cross-validation for feature-enhanced model: feature fusion architecture  
+- Evaluation: Mean and standard deviation of both models
 
 ## Installation
 
 This project relies on the following core libraries:
 - Data Handling & Visualization: pandas, numpy, matplotlib, seaborn, tqdm, os – for data manipulation, visualization, and progress tracking
 - NLP & Transformers: transformers, datasets, torch, huggingface_hub – for model loading, fine-tuning, and inference using DeBERTa-v3 and other transformer architectures
-- Statistical Analysis: scipy.stats – for correlation and independence testing (e.g. Chi-Square)
+- Statistical Analysis: scipy.stats – for correlation and independence testing 
 - Evaluation & Preprocessing: scikit-learn – for metrics (accuracy, F1, precision, recall), label encoding, stratified splitting, and data preparation
 - Linguistic Feature Extraction: spaCy – for part-of-speech tagging and syntactic analysis using the en_core_web_sm model
 - Colab Integration & File Handling: google.colab, pickle – for saving/loading models and working with Google Drive
