@@ -5,21 +5,25 @@ Modular NLP pipeline for detecting rhetorical bias in news headlines. Combines e
 
 - `data/` – combined dataset of MBIC and BEADs with additional features "emotion scores", "dominant emotion", "leaning scores" and "political leaning"
 - `notebook/` – main analysis notebook with pipeline steps (Note: Due to widget metadata, GitHub may not render the notebook preview correctly. Please open it locally for full functionality.)
-- `results/`: csv-files of all preditions and all fold metrics from both model trainings 
+- `results/`: csv-files of all preditions and all fold metrics from both model trainings
+
+## Datasets
+- MBIC (A Media Bias Annotation Dataset) sourced from: https://www.kaggle.com/datasets/timospinde/mbic-a-media-bias-annotation-dataset?resource=download
+- BEADs (Bias Evaluation Across Domains Dataset) sourced from: https://huggingface.co/datasets/shainar/BEAD
 
 ## Pipeline Overview
 
-1. **Baseline text-only classifier** with a DeBERTa-v3 model 
-2. **Emotion Detection** using `j-hartmann/emotion-english-distilroberta-base`  
-3. **Political Leaning Classification** using `matous-volf/political-leaning-politics`
-4. **Politicization Analysis** – word-level and document-level  
-5. **Correlation Analysis** – Pearson & Chi-Square  
+2. **Baseline text-only classifier** with a DeBERTa-v3 model (https://huggingface.co/microsoft/deberta-v3-base)
+3. **Emotion Detection** using `j-hartmann/emotion-english-distilroberta-base` (https://huggingface.co/j-hartmann/emotion-english-distilroberta-base)
+4. **Political Leaning Classification** using `matous-volf/political-leaning-politics` (https://huggingface.co/matous-volf/political-leaning-politics?text=Opting+for+abortion+is+an+inalienable+right+of+every+individual.) 
+5. **Politicization Analysis** – word-level and document-level  
+6. **Correlation Analysis** – Pearson & Chi-Square  
 7. **Feature Engineering** – emotion + POS features  
 8. **Feature-enhanced classifer** with a DeBERTa-v3 model and fushion architecture
 
 ## Model Details
 
-- Architecture: `microsoft/deberta-v3-base`  
+- Architecture: `microsoft/deberta-v3-base`
 - Task: label classification (`left`, `right`, `center` vs. `unbiased`)  
 - Input: Text-only (headlines) and additional features (dominant emotion, political leaning prediction & politicization score)  
 - Training: Random oversampling for class balance  
