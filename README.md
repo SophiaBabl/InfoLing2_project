@@ -13,7 +13,7 @@ Modular NLP pipeline for detecting rhetorical bias in news headlines. Combines e
 
 ## Pipeline Overview
 
-2. **Baseline text-only classifier** with a DeBERTa-v3 model (https://huggingface.co/microsoft/deberta-v3-base)
+2. **Baseline text-only classifier** with the `DeBERTa-v3 model` (https://huggingface.co/microsoft/deberta-v3-base)
 3. **Emotion Detection** using `j-hartmann/emotion-english-distilroberta-base` (https://huggingface.co/j-hartmann/emotion-english-distilroberta-base)
 4. **Political Leaning Classification** using `matous-volf/political-leaning-politics` (https://huggingface.co/matous-volf/political-leaning-politics?text=Opting+for+abortion+is+an+inalienable+right+of+every+individual.) 
 5. **Politicization Analysis** – word-level and document-level  
